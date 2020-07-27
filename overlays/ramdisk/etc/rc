@@ -1,0 +1,8 @@
+#!/rescue/sh
+
+umount -f /cdrom
+if [ -f "/memdisk/init-reroot.sh" ] ; then
+  cp /memdisk/init-reroot.sh /
+fi
+reboot -r
+
