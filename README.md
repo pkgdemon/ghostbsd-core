@@ -1,7 +1,7 @@
 # ghostbsd-core
 GhostBSD core ISO build
 
-These scripts will assemble the core operating system for GhostBSD for research, testing, and development purposes.  The first script will build base packages.  The second script will assemble a hybrid ISO that will boot with full read write support by rerooting into a memory filesystem after GhostBSD is cloned to it.  The third script will boot the ISO in a bhyve VM for quicker testing and development purposes.  
+These scripts will assemble the core operating system for GhostBSD for research, testing, and development purposes.  The first script will build base packages.  The second script will assemble a hybrid ISO that will boot with full read write support by rerooting into a memory filesystem after GhostBSD is cloned to it.  The third script will boot the ISO in a bhyve VM for quicker testing, and development purposes.  
 
 ## Recommend System Requirements for building base packages
 
