@@ -18,7 +18,6 @@ These will assemble the core operating system for GhostBSD for research, testing
 * GhostBSD 20.04.1 or newer
 * 2GB memory for VM
 * 2 cores for VM
-* 50GB of disk space
 * vm-bhyve with one time manual configuration required
 
 Lesser configurations should work but have not been tested.
