@@ -7,47 +7,45 @@ if [ "`ps -o command 1 | tail -n 1 | ( read c o; echo ${o} )`" = "-s" ]; then
 	SINGLE_USER="true"
 fi
 
-echo "==> Remount rootfs as read-write"
-mount -u -w /
-
-echo "==> Make mountpoints"
-mkdir -p /cdrom /usr/dists /memdisk /mnt /sysroot /usr /tmp
-
 echo "==> Waiting for GHOSTBSD media to initialize"
 while : ; do
     [ -e "/dev/iso9660/GHOSTBSD" ] && echo "==> Found /dev/iso9660/GHOSTBSD" && break
     sleep 1
 done
 
-echo "==> Mount cdrom"
+echo "==> Remount rootfs as read-write"
+mount -u -w /
+
+echo "==> Make mountpoints for cloning"
+mkdir -p /cdrom /memdisk /sysroot /tmp
+
+echo "==> Mount cdrom for cloning"
 mount_cd9660 /dev/iso9660/GHOSTBSD /cdrom
 
-if [ -f "/cdrom/data/system.uzip" ] ; then
-  mdmfs -P -F /cdrom/data/system.uzip -o ro md.uzip /sysroot
-fi
-
-# Make room for backup in /tmp
+echo "==> Mount tmpfs for cloning"
 mount -t tmpfs tmpfs /tmp
 
-echo "==> Create and mount swap-based memdisk"
+echo "==> Mount /cdrom/system.uzip to /sysroot to get /dev/md1.uzip for cloning"
+mdmfs -P -F /cdrom/data/system.uzip -o ro md.uzip /sysroot
+
+echo "==> Waiting for /dev/md1.uzip to initialize"
+while : ; do
+    [ -e "/dev/md1.uzip" ] && echo "==> Found /dev/md1.uzip" && break
+    sleep 1
+done
+
+echo "==> Create and mount swap-based /dev/md2 at /memdisk for cloning"
 mdmfs -s 2048m md /memdisk || exit 1
 
-echo "==> Cloning GhostBSD to memdisk"
-if [ -d "/sysroot" ] ; then
-  dump -0f - /dev/md1.uzip | (cd /memdisk; restore -rf -)
-  rm /memdisk/restoresymtable
-  cp /etc/fstab /memdisk
-  cp /init-reroot.sh /memdisk
-  kenv vfs.root.mountfrom=ufs:/dev/md2
-  kenv init_script="/init-reroot.sh"
-fi
-
-echo "==> Rerooting into memdisk"
+echo "==> Cloning /dev/md1.uzip to /memdisk with dump | restore"
+dump -0f - /dev/md1.uzip | (cd /memdisk; restore -rf -)
+rm /memdisk/restoresymtable
 
 if [ "$SINGLE_USER" = "true" ]; then
 	echo "Starting interactive shell in temporary rootfs ..."
 	exit 0
 fi
 
+echo "==> Exit to /etc/rc for reroot"
 kenv init_shell="/rescue/sh"
 exit 0
