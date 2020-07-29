@@ -10,7 +10,7 @@ These scripts are only for testing the core operating system for GhostBSD and fo
 * 48 cores
 * 100GB of disk space
 
-Lesser configurations should work but have not been tested
+Lesser configurations should work but have not been tested.
 
 ## Configure poudriere
 
@@ -117,8 +117,6 @@ vm switch public add igb0
 ```
 
 Note that ipfw must be stopped or bridge traffic must be allowed.  
-
-This scripts only for testing the core operating system for GhostBSD and for research puproses.
 
 ## Build base packages
 ```
