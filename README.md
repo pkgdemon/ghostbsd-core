@@ -11,8 +11,15 @@ These scripts are only for testing the core operating system for GhostBSD and fo
 * 100GB of disk space
 * GhostBSD src in /usr/src
 * GhostBSD ports in /usr/ports
+* Poudriere and vm-bhvye with one time configuration
 
 Lesser configurations should work but have not been tested.
+
+## Install poudriere
+
+```
+pkg install poudriere
+```
 
 ## Configure poudriere
 
@@ -91,14 +98,14 @@ service nginx start
 
 Now you can access poudriere from http://127.0.0.1 in browser to monitor progress of base packages build.
 
-## Installing vm-bhyve
+## Install vm-bhyve
 
 Install package for vm-bhyve
 ```
 pkg install vm-bhyve
 ```
 
-## Setup vm-bhyve
+## Configure vm-bhyve
 ```
 sysrc vm_enable="YES"
 sysrc vm_dir="zfs:tank/usr/vms"
