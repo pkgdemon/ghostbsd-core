@@ -1,17 +1,24 @@
 # ghostbsd-core
 GhostBSD core ISO build
 
-These scripts are only for testing the core operating system for GhostBSD and for research purposes.
+These scripts will assemble the core operating system for GhostBSD for research, testing, and development purposes.  The first script will build base packages.  The second script will assemble a hybrid ISO that will boot full read write support by rerooting into a memory filesystem after GhostBSD is cloned to it.  The third script will boot the ISO in a bhyve VM for quicker testing and development purposes.  
 
-## Recommend System Requirements
+## Recommend System Requirements for building base packages
 
 * GhostBSD 20.04.1 or newer
-* 128GB memory
-* 48 cores
-* 100GB of disk space
+* 32GB memory
+* 8 cores
+* 50GB of disk space
 * GhostBSD src in /usr/src
 * GhostBSD ports in /usr/ports
-* Poudriere and vm-bhvye with one time configuration
+* Poudriere with one time manual configuration required
+
+## System Requirements for VM testing
+
+* GhostBSD 20.04.1 or newer
+* 2GB memory for VM
+* 2 cores for VM
+* vm-bhyve with one time manual configuration required
 
 Lesser configurations should work but have not been tested.
 
