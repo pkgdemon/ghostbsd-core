@@ -40,6 +40,11 @@ Save configuration then make distfiles location for building ports:
 zfs create tank/usr/ports/distfiles
 ```
 
+Create poudriere ports jail that uses /usr/ports for ports tree:
+```
+poudriere ports -c -p ghostbsd-ports -m null -M /usr/ports/
+```
+
 ## Install nginx to monitor ports build (optional)
 
 Install the nginx package:
