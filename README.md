@@ -137,7 +137,7 @@ Add your ethernet adapter to brige (substitute igb0 for your adapter)
 vm switch public add igb0
 ```
 
-Note that ipfw must be stopped or bridge traffic must be allowed.  
+Note that ipfw must be stopped if it is enabled, or bridge traffic must be allowed for networking to function (not covered here).  
 
 ## Build base packages
 ```
