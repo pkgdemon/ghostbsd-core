@@ -9,6 +9,8 @@ These scripts are only for testing the core operating system for GhostBSD and fo
 * 128GB memory
 * 48 cores
 * 100GB of disk space
+* GhostBSD src in /usr/src
+* GhostBSD ports in /usr/ports
 
 Lesser configurations should work but have not been tested.
 
