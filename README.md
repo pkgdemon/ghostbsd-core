@@ -1,7 +1,7 @@
 # ghostbsd-core
 GhostBSD core ISO build
 
-These scripts are only for testing the core operating system for GhostBSD and for research puproses.
+These scripts are only for testing the core operating system for GhostBSD and for research purposes.
 
 ## Recommend System Requirements
 
