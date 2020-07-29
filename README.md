@@ -124,7 +124,7 @@ Create bridge for networking
 vm switch create public
 ```
 
-Add your ethernet adapter to brige (substite igb0 for your adapter)
+Add your ethernet adapter to brige (substitute igb0 for your adapter)
 
 ```
 vm switch public add igb0
