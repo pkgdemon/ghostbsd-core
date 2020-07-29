@@ -6,6 +6,7 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
+# Make sure we have /usr/src checked out first
 if [ ! -f "/usr/src/sys/conf/package-version" ] ; then
   echo "Missing GhostBSD source in /usr/src"
   exit 1
