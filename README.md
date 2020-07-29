@@ -135,7 +135,7 @@ This scripts only for testing the core operating system for GhostBSD and for res
 ./03-build-vm.sh
 ```
 
-Kill VM session from another terminal
+## Kill VM session from another terminal
 ```
 killall cu
 ```
