@@ -91,7 +91,7 @@ Install package for vm-bhyve
 pkg install vm-bhyve
 ```
 
-# Setup vm-bhyve
+## Setup vm-bhyve
 ```
 sysrc vm_enable="YES"
 sysrc vm_dir="zfs:tank/usr/vms"
@@ -120,17 +120,17 @@ Note that ipfw must be stopped or bridge traffic must be allowed.
 
 This scripts only for testing the core operating system for GhostBSD and for research puproses.
 
-Build base packages
+## Build base packages
 ```
 ./01-build.packages.sh
 ```
 
-Build core image
+## Build core image
 ```
 ./02-build-iso.sh
 ```
 
-Start VM with ISO and console for testing
+## Start VM with ISO and console for testing
 ```
 ./03-build-vm.sh
 ```
