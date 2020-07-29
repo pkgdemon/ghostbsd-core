@@ -1,6 +1,8 @@
 # ghostbsd-core
 GhostBSD core ISO build
 
+These scripts are only for testing the core operating system for GhostBSD and for research puproses.
+
 ## Recommend System Requirements
 
 * GhostBSD 20.04.1 or newer
@@ -79,6 +81,42 @@ Start nginx service:
 ```
 service nginx start
 ```
+
+Now you can access poudriere from http://127.0.0.1 in browser to monitor progress of base packages build.
+
+## Installing vm-bhyve
+
+Install package for vm-bhyve
+```
+pkg install vm-bhyve
+```
+
+# Setup vm-bhyve
+```
+sysrc vm_enable="YES"
+sysrc vm_dir="zfs:tank/usr/vms"
+zfs set mountpoint=/usr/vms tank/usr/vms
+vm init
+rc-update add vm
+```
+
+Install firmware for UEFI
+```
+pkg-install bhyve-firmware
+```
+
+Create bridge for networking
+```
+vm switch create public
+```
+
+Add your ethernet adapter to brige (substite igb0 for your adapter)
+
+```
+vm switch public add igb0
+```
+
+Note that ipfw must be stopped or bridge traffic must be allowed.  
 
 This scripts only for testing the core operating system for GhostBSD and for research puproses.
 
