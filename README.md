@@ -138,4 +138,5 @@ This scripts only for testing the core operating system for GhostBSD and for res
 ## Kill VM session from another terminal
 ```
 killall cu
+vm poweroff ghostbsd
 ```
