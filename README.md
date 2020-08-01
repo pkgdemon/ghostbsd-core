@@ -39,7 +39,7 @@ edit /usr/local/etc/poudriere.conf
 Define to the pool to be used for building packages:
 
 ```
-ZPOOL=/tank
+ZPOOL=tank
 ```
 
 Define the local path for creating jails, ports trees:
