@@ -5,7 +5,7 @@ These scripts will assemble the core operating system of GhostBSD for research, 
 
 ## Recommend System Requirements for building base packages
 
-* GhostBSD 20.04.1 or newer
+* GhostBSD 20.07.14 or newer
 * 32GB memory
 * 8 cores
 * 50GB of disk space
@@ -21,7 +21,7 @@ These scripts will assemble the core operating system of GhostBSD for research, 
 
 ## System Requirements for VM testing
 
-* GhostBSD 20.04.1 or newer
+* GhostBSD 20.07.14 or newer
 * 2GB memory for VM
 * 2 cores for VM
 * vm-bhyve with one time manual configuration required
