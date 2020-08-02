@@ -10,8 +10,13 @@ These scripts will assemble the core operating system of GhostBSD for research, 
 * 8 cores
 * 50GB of disk space
 * GhostBSD src in /usr/src
+```
+    git clone https://github.com/ghostbsd/ghostbsd.git /usr/src
+```
 * GhostBSD ports in /usr/ports
+```
     git clone https://github.com/ghostbsd/ghostbsd-ports.git /usr/ports/
+```
 * Poudriere with one time manual configuration required
 
 ## System Requirements for VM testing
