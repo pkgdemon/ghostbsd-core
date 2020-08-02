@@ -51,7 +51,7 @@ ZPOOL=tank
 Define the local path for creating jails, ports trees:
 
 ```
-BASEFS=/tank/poudriere
+BASEFS=/poudriere
 ```
 
 Save configuration then make distfiles location for building ports:
