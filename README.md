@@ -129,7 +129,7 @@ rc-update add vm
 
 Install firmware for UEFI
 ```
-pkg-install bhyve-firmware
+pkg install bhyve-firmware
 ```
 
 Create bridge for networking
