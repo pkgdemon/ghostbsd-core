@@ -76,7 +76,7 @@ pkg install nginx
 Edit the default configuration:
 
 ```
-edit /usr/local/etc/nginx.conf
+edit /usr/local/etc/nginx/nginx.conf
 ```
 
 Set root parameter, add data alias, and enable autoindex:
