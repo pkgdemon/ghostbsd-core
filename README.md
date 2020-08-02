@@ -26,19 +26,19 @@ Lesser configurations should work but have not been tested.
 
 ## Install C compliler
 ```
-    pkg install os-generic-userland-devtools
+pkg install os-generic-userland-devtools
 ```
 ## Install Git
 ```
-    pkg install git
+pkg install git
 ```
 ## Install GhostBSD kernel source
 ```
-    git clone https://github.com/ghostbsd/ghostbsd.git /usr/src
+git clone https://github.com/ghostbsd/ghostbsd.git /usr/src
 ```
 ## Install GhostBSD Ports
 ```
-    git clone https://github.com/ghostbsd/ghostbsd-ports.git /usr/ports/
+git clone https://github.com/ghostbsd/ghostbsd-ports.git /usr/ports/
 ```
 ## Install poudriere
 
