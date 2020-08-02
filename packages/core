@@ -1,0 +1,7 @@
+os-generic-userland-devtools
+git
+poudriere
+nginx
+vm-bhyve
+bhyve-firmware
+
