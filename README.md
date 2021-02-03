@@ -5,23 +5,41 @@ These scripts will assemble the core operating system of GhostBSD for research, 
 
 ## Recommend System Requirements for building base packages
 
-* GhostBSD 20.04.1 or newer
+* GhostBSD 20.07.14 or newer
 * 32GB memory
 * 8 cores
 * 50GB of disk space
+* C Compiler
+* Git
 * GhostBSD src in /usr/src
 * GhostBSD ports in /usr/ports
 * Poudriere with one time manual configuration required
 
 ## System Requirements for VM testing
 
-* GhostBSD 20.04.1 or newer
+* GhostBSD 20.07.14 or newer
 * 2GB memory for VM
 * 2 cores for VM
 * vm-bhyve with one time manual configuration required
 
 Lesser configurations should work but have not been tested.
 
+## Install C compliler
+```
+pkg install os-generic-userland-devtools
+```
+## Install Git
+```
+pkg install git
+```
+## Install GhostBSD kernel source
+```
+git clone https://github.com/ghostbsd/ghostbsd.git /usr/src
+```
+## Install GhostBSD Ports
+```
+git clone https://github.com/ghostbsd/ghostbsd-ports.git /usr/ports/
+```
 ## Install poudriere
 
 ```
@@ -39,7 +57,7 @@ edit /usr/local/etc/poudriere.conf
 Define to the pool to be used for building packages:
 
 ```
-ZPOOL=/tank
+ZPOOL=tank
 ```
 
 Define the local path for creating jails, ports trees:
@@ -70,7 +88,7 @@ pkg install nginx
 Edit the default configuration:
 
 ```
-edit /usr/local/etc/nginx.conf
+edit /usr/local/etc/nginx/nginx.conf
 ```
 
 Set root parameter, add data alias, and enable autoindex:
@@ -123,7 +141,7 @@ rc-update add vm
 
 Install firmware for UEFI
 ```
-pkg-install bhyve-firmware
+pkg install bhyve-firmware
 ```
 
 Create bridge for networking
@@ -134,7 +152,7 @@ vm switch create public
 Add your ethernet adapter to brige (substitute igb0 for your adapter)
 
 ```
-vm switch public add igb0
+vm switch add public igb0
 ```
 
 Note that ipfw must be stopped if it is enabled, or bridge traffic must be allowed for networking to function (not covered here).  
